@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
-import com.openprice.chatservice.config.model.Product;
+import com.openprice.chatservice.controller.model.Product;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
@@ -36,14 +36,14 @@ public class StaticProductInitializer {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                Product product = new Product(parts[0],parts[1],Double.parseDouble(parts[2]),Double.parseDouble(parts[3]));
+                Product product = new Product(parts[0], parts[1], Double.parseDouble(parts[2]),  Double.parseDouble(parts[3]),Double.parseDouble(parts[4]), Double.parseDouble(parts[5]), Double.parseDouble(parts[6]), Double.parseDouble(parts[7]),Double.parseDouble(parts[8]),Double.parseDouble(parts[9]), parts[10]);
                 productMap.put(parts[0], product);
             }
         }
     }
 
     // Getter for accessing the static map from other classes
-    public static Map<String, Product> getProductMap() {
+    public static Map<String, com.openprice.chatservice.controller.model.Product> getProductMap() {
         return productMap;
     }
 }

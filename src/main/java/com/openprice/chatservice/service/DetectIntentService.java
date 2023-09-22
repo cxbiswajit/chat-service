@@ -24,7 +24,7 @@ public class DetectIntentService {
     }
 
     public QueryResult detectIntent(String sessionId, String text) throws IOException, ApiException {
-
+        System.out.println("Inside detect intent "+sessionId + " text " + text);
         SessionName session = SessionName.ofProjectLocationAgentSessionName("openprice-392217", "us-central1", "692d1093-96f2-4b25-a8f4-482d2e6667bd", sessionId);
 
         TextInput.Builder textInput = TextInput.newBuilder().setText(text);

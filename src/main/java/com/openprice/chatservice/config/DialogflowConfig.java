@@ -28,9 +28,9 @@ public class DialogflowConfig {
 
     @Bean
     public GoogleCredentials googleCredentials() throws IOException {
-         Resource resource = new ClassPathResource("openprice-392217-b47426a8ce26.json");
+         Resource resource = new ClassPathResource("openprice-392217-3ffcc4d15946.json");
         try (InputStream serviceAccountStream = resource.getInputStream()) {
-            return GoogleCredentials.fromStream(serviceAccountStream);
+            return GoogleCredentials.fromStream(serviceAccountStream).createScoped("https://www.googleapis.com/auth/cloud-platform");
         }
     }
 
